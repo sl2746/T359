@@ -72,7 +72,13 @@
     },
     ready() {
       this.$http.get(`http://61.139.87.61:8880/categories`).then(response => {
-        this.treeData = response.data[2]
+        let data = {
+              "id": -1,
+              "parent_id": -1,
+              "name": "分类",
+              "children": response.data
+            };
+        this.treeData = data;
       })
     }
   }

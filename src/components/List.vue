@@ -43,7 +43,7 @@
       let $this = this,
           effectLevels = [],
           path = this.$route.path.replace('/','');
-      console.log(path);
+      // console.log(path);
       PubSub.subscribe('effectLevels', (msg,data) => {
         effectLevels = data.effectLevels;
       });
