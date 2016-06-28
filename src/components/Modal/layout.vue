@@ -27,7 +27,7 @@
         let basePath = 'http://61.139.87.61:8880',
             type = this.$route.path.replace('/',''),
             downloadUrl = `${basePath}/${type}/${this.modaldata.id}/download`;
-            window.open(downloadUrl);
+        window.open(downloadUrl);
       }
     }
   }

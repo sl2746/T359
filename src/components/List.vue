@@ -11,7 +11,7 @@
       </a>
     </fieldset>
   </div>
-  <m-default :close.sync="close" :modaldata.sync="modaldata"></m-default>
+  <m-default :close.sync="close" :modaldata.sync="modaldata" :opentype.sync="opentype"></m-default>
   <!--<m-not-logged :close.sync="close"></m-not-logged>-->
 </template>
 
@@ -32,6 +32,7 @@
   export default {
     data() {
       return {
+        opentype:'',
         modaldata:{},
         data:[],
         close: true,
@@ -42,6 +43,7 @@
       let $this = this,
           effectLevels = [],
           path = this.$route.path.replace('/','');
+      console.log(path);
       PubSub.subscribe('effectLevels', (msg,data) => {
         effectLevels = data.effectLevels;
       });
@@ -94,13 +96,11 @@
         let $this = this,
             path = this.$route.path.replace('/',''),
             url = `http://61.139.87.61:8880/${path}/${id}`;
-        if (path == 'sources') {
-          // url = `${url}/text`
-        }
-        console.log(url)
+        // console.log(url);
         this.$http.get(url).then(response => {
           $this.close = false;
-          console.log(JSON.stringify(response.data));
+          $this.opentype = path;
+          // console.log(JSON.stringify(response.data));
           $this.modaldata = response.data;
         });
       }
