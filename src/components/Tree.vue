@@ -7,21 +7,23 @@
 <script>
   import Vue from 'vue';
   import PubSub from "pubsub-js";
+  import _ from 'underscore';
 
   let strVar="";
   strVar += "<li>";
   strVar += "      <div";
-  strVar += "        :class=\"{bold: isFolder}\"";
-  strVar += "        @click=\"toggle\"";
-  strVar += "        @dblclick=\"changeType\">";
-  strVar += "        <span v-if=\"isFolder\"><img v-if=\"open\"src=\"../src/img/square_remove.png\"><img v-else src=\"../src/img/square_add.png\"><\/span>";
+  // strVar += "        :class='{bold: isFolder}'";
+  // strVar += "        class='{{active}}'";
+  strVar += "        @click='toggle'";
+  strVar += "        @dblclick='changeType'>";
+  strVar += "        <span v-if='isFolder'><img v-if='open'src='../src/img/square_remove.png'><img v-else src='../src/img/square_add.png'><\/span>";
   strVar += "        {{model.name}}";
   strVar += "      <\/div>";
-  strVar += "      <ul v-show=\"open\" v-if=\"isFolder\">";
+  strVar += "      <ul v-show='open' v-if='isFolder'>";
   strVar += "        <item";
-  strVar += "          class=\"item\"";
-  strVar += "          v-for=\"model in model.children\"";
-  strVar += "          :model=\"model\">";
+  strVar += "          class='item'";
+  strVar += "          v-for='model in model.children'";
+  strVar += "          :model='model'>";
   strVar += "        <\/item>";
   strVar += "      <\/ul>";
   strVar += "<\/li>";
@@ -48,13 +50,17 @@
         if (this.isFolder) {
           this.open = !this.open
         }else {
+          _.each(document.querySelectorAll('ul.m-tree li div'),el => {
+            el.className = '';
+          });
+          event.target.className = 'active';//激活当前状态
           PubSub.publish('category_id', {
             category_id: this.model.id
           });
         }
       },
       changeType: function () {
-        console.log(!this.isFolder);
+        // console.log(!this.isFolder);
         if (!this.isFolder) {
           Vue.set(this.model, 'children', [])
           this.addChild()
@@ -67,7 +73,12 @@
   export default {
     data() {
       return {
-        treeData: {}
+        treeData: {
+              "id": -1,
+              "parent_id": -1,
+              "name": "分类",
+              "children": []
+            }
       }
     },
     ready() {
@@ -79,7 +90,7 @@
               "children": response.data
             };
         this.treeData = data;
-      })
+      });
     }
   }
 </script>

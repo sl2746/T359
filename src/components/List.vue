@@ -12,7 +12,7 @@
     </fieldset>
   </div>
   <m-default :close.sync="close" :modaldata.sync="modaldata" :opentype.sync="opentype"></m-default>
-  <!--<m-not-logged :close.sync="close"></m-not-logged>-->
+  <!-- <m-not-logged :close.sync="nloginclose"></m-not-logged> -->
 </template>
 
 <script>
@@ -36,6 +36,7 @@
         modaldata:{},
         data:[],
         close: true,
+        nloginclose: true,
         iconClass: ''
       }
     },
@@ -43,47 +44,48 @@
       let $this = this,
           effectLevels = [],
           path = this.$route.path.replace('/','');
-      // console.log(path);
       PubSub.subscribe('effectLevels', (msg,data) => {
         effectLevels = data.effectLevels;
       });
       PubSub.subscribe('category_id', (msg,data) => {
-        $this.$http.get(`http://61.139.87.61:8880/categories/${data.category_id}/bases/${path}`)
-        .then(response => {
-          if (path == 'sources') {//法律
-            let gp = _.groupBy(response.data.items,(val)=>{
-              return val.effectLevel.name;
-            });
+          let url = `http://61.139.87.61:8880/categories/${data.category_id}/bases/${path}`;
+          $this.$http.get(url)
+          .then(response => {
+            // console.log(JSON.stringify(response.data.items.length));
+            if (path == 'sources') {//法律
+              let gp = _.groupBy(response.data.items,(val)=>{
+                return val.effectLevel.name;
+              });
 
-            let data = _.map(gp,(val,key)=>{
-              let tmp = _.map(val,(v,k)=>{
+              let data = _.map(gp,(val,key)=>{
+                let tmp = _.map(val,(v,k)=>{
+                  return {
+                    id:v.id,
+                    title:v.name,
+                    url: '###'
+                  }
+                });
+
+                return{
+                  title:key,
+                  list:tmp
+                }
+              });
+              $this.data = data;
+            } else {
+              let data = _.map(response.data.items,(val)=>{
                 return {
-                  id:v.id,
-                  title:v.name,
+                  id:val.id,
+                  title:val.name,
                   url: '###'
                 }
               });
-
-              return{
-                title:key,
-                list:tmp
-              }
-            });
-            $this.data = data;
-          } else {
-            let data = _.map(response.data.items,(val)=>{
-              return {
-                id:val.id,
-                title:val.name,
-                url: '###'
-              }
-            });
-            $this.data = [{
-              title: response.data.category.name,
-              list:data
-            }];
-          }
-        });
+              $this.data = [{
+                title: response.data.category.name,
+                list:data
+              }];
+            }
+          });
       });
     },
     computed: {
@@ -108,6 +110,12 @@
     components: {
       mDefault,
       mNotLogged
+    },
+    route: {
+      deactivate: function () {
+      //stop sending requests
+      console.log(123);
+      }
     }
   }
 </script>

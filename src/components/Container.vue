@@ -16,10 +16,16 @@
       Tree,
       List,
       Navbar
+    },
+    route:  {
+        canReuse:function(){
+          //不可以复用
+          return false;
+        }
     }
   }
 </script>
 
 <style>
-  
+
 </style>

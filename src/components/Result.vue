@@ -56,6 +56,7 @@
       }
     },
     ready() {
+      console.log(`result`);
       this.$http.get(`http://61.139.87.61:8880/conditions?keyword=${this.$route.query.keyword}`)
       .then(response => {
         // console.log(JSON.stringify(response.data.items));

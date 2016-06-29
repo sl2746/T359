@@ -24,7 +24,7 @@
               keyword: this.value
             }
           })
-          // this.value = ''
+          this.value = ''
         } else {
           alert('请输入查询信息！')
         }
