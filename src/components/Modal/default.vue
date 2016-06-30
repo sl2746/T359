@@ -1,6 +1,7 @@
 <template>
   <layout :modaldata.sync="modaldata" :close.sync="close">
     <!-- 问题 -->
+    <div>
     <div class="default-tab" v-show="opentype == 'questions'">
       <ul class="btns f-cb">
         <li v-for="item in ['问题解答','参考案例','相关法规']"
@@ -180,6 +181,7 @@
         </div>
       </ul>
     </div>
+  </div>
   </div>
   </layout>
 </template>

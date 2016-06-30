@@ -6,7 +6,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
   min-width: 550px;
-  max-width: 800px;
+  min-height: 400px;
+  /*max-width: 800px;*/
   padding: 25px;
   border: 1px solid #000;
   background-color: #fff;
@@ -15,7 +16,7 @@
 .m-modal .default-title {
   padding-bottom: 15px;
   margin-bottom: 15px;
-  border-bottom: 2px solid #000; 
+  border-bottom: 2px solid #000;
   font-size: 24px;
   font-weight: bold;
 }
@@ -121,10 +122,10 @@
 
 .m-modal .has-registered {
   margin-top: 15px;
-  font-size: 14px;  
+  font-size: 14px;
 }
 
 .m-modal .has-registered > a {
-  padding: 0 5px;  
+  padding: 0 5px;
   color: #0066CC;
 }

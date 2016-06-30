@@ -1,18 +1,20 @@
 <template>
-  <div class="m-list f-fr">
-    <fieldset v-for="item in data">
-      <legend>
-        {{ item.title + item.list.length + '个' }}
-      </legend>
-      <a v-for="data in item.list"
-         @click="open(data.id)">
-        <i class="u-icon" :class="[iconClass]"></i>
-        <span v-text="data.title"></span>
-      </a>
-    </fieldset>
+  <div>
+    <div class="m-list f-fr">
+      <fieldset v-for="item in data">
+        <legend>
+          {{ item.title + item.list.length + '个' }}
+        </legend>
+        <a v-for="data in item.list"
+           @click="open(data.id)">
+          <i class="u-icon" :class="[iconClass]"></i>
+          <span v-text="data.title"></span>
+        </a>
+      </fieldset>
+    </div>
+    <m-default :close.sync="close" :modaldata.sync="modaldata" :opentype.sync="opentype"></m-default>
+    <!-- <m-not-logged :close.sync="nloginclose"></m-not-logged> -->
   </div>
-  <m-default :close.sync="close" :modaldata.sync="modaldata" :opentype.sync="opentype"></m-default>
-  <!-- <m-not-logged :close.sync="nloginclose"></m-not-logged> -->
 </template>
 
 <script>
@@ -113,8 +115,6 @@
     },
     route: {
       deactivate: function () {
-      //stop sending requests
-      console.log(123);
       }
     }
   }

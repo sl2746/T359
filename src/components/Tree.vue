@@ -1,6 +1,10 @@
 <template>
   <ul class="m-tree f-fl">
-    <item class="item" :model="treeData"></item>
+      <item
+        class="item"
+        :model="treeData"
+        >
+      </item>
   </ul>
 </template>
 
@@ -12,18 +16,17 @@
   let strVar="";
   strVar += "<li>";
   strVar += "      <div";
-  // strVar += "        :class='{bold: isFolder}'";
-  // strVar += "        class='{{active}}'";
-  strVar += "        @click='toggle'";
-  strVar += "        @dblclick='changeType'>";
-  strVar += "        <span v-if='isFolder'><img v-if='open'src='../src/img/square_remove.png'><img v-else src='../src/img/square_add.png'><\/span>";
+  strVar += "        :class=\"{bold: isFolder}\"";
+  strVar += "        @click=\"toggle\"";
+  strVar += "        @dblclick=\"changeType\">";
+  strVar += "        <span v-if=\"isFolder\"><img v-if=\"open\"src=\"../src/img/square_remove.png\"><img v-else src=\"../src/img/square_add.png\"><\/span>";
   strVar += "        {{model.name}}";
   strVar += "      <\/div>";
-  strVar += "      <ul v-show='open' v-if='isFolder'>";
+  strVar += "      <ul v-show=\"open\" v-if=\"isFolder\">";
   strVar += "        <item";
-  strVar += "          class='item'";
-  strVar += "          v-for='model in model.children'";
-  strVar += "          :model='model'>";
+  strVar += "          class=\"item\"";
+  strVar += "          v-for=\"model in model.children\"";
+  strVar += "          :model=\"model\">";
   strVar += "        <\/item>";
   strVar += "      <\/ul>";
   strVar += "<\/li>";
@@ -60,10 +63,8 @@
         }
       },
       changeType: function () {
-        // console.log(!this.isFolder);
         if (!this.isFolder) {
           Vue.set(this.model, 'children', [])
-          this.addChild()
           this.open = true
         }
       }
@@ -82,15 +83,21 @@
       }
     },
     ready() {
+      // console.log(`${this.treeData}`);
+      let $this = this;
       this.$http.get(`http://61.139.87.61:8880/categories`).then(response => {
+        // console.log(JSON.stringify(JSON.stringify($this.treeData)+new Date().getTime()));
         let data = {
               "id": -1,
               "parent_id": -1,
               "name": "分类",
               "children": response.data
             };
-        this.treeData = data;
+        $this.treeData = data;
       });
+    },
+    components:{
+      // item,
     }
   }
 </script>
