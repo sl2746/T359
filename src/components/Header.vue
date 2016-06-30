@@ -1,6 +1,6 @@
 <template>
   <header class="g-h">
-    建法平台
+    健法乾坤
     <a href="###" class="login">登陆</a>
   </header>
   <div class="f-cb">
