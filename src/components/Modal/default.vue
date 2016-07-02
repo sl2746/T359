@@ -21,10 +21,14 @@
               v-if="modaldata.hasOwnProperty('relations') && modaldata.relations.hasOwnProperty('cases') && modaldata.relations.cases.length">
               <ul v-for="case1 in modaldata.relations.cases">
                 <li>
-                  <div v-text="case1.name" @click="showCase">
+                  <div>
+                    <span v-text="case1.name"></span>
+                    <span @click="showNode" class="m-showclick">+ 展开</span>
                   </div>
-                  <fieldset v-html="(case1.content || ' ') | marked" v-show="false">
-                  </fieldset>
+                  <div v-show="false">
+                    <fieldset v-html="(case1.content || ' ') | marked">
+                    </fieldset>
+                  </div>
                   </br>
                 </li>
               </ul>
@@ -38,7 +42,9 @@
               v-if="modaldata.hasOwnProperty('relations') && modaldata.relations.hasOwnProperty('clauses') && modaldata.relations.clauses.length">
               <ul v-for="clause in modaldata.relations.clauses">
                 <li>
-                  <div v-text="clause.name" @click="showNode">
+                  <div>
+                    <span v-text="clause.name"></span>
+                    <span @click="showNode" class="m-showclick">+ 展开</span>
                   </div>
                   <fieldset v-html="(clause.content || ' ') | marked" v-show="false">
                   </fieldset>
@@ -72,7 +78,9 @@
               v-if="modaldata.hasOwnProperty('relations') && modaldata.relations.hasOwnProperty('cases') && modaldata.relations.cases.length">
               <ul v-for="case1 in modaldata.relations.cases">
                 <li>
-                  <div v-text="case1.name" @click="showCase">
+                  <div>
+                    <span v-text="case1.name"></span>
+                    <span @click="showNode" class="m-showclick">+ 展开</span>
                   </div>
                   <fieldset v-html="(case1.content || ' ') | marked" v-show="false">
                   </fieldset>
@@ -89,7 +97,9 @@
               v-if="modaldata.hasOwnProperty('relations') && modaldata.relations.hasOwnProperty('clauses') && modaldata.relations.clauses.length">
               <ul v-for="clause in modaldata.relations.clauses">
                 <li>
-                  <div v-text="clause.name" @click="showNode">
+                  <div>
+                    <span v-text="clause.name"></span>
+                    <span @click="showNode" class="m-showclick">+ 展开</span>
                   </div>
                   <fieldset v-html="(clause.content || ' ') | marked" v-show="false">
                   </fieldset>
@@ -123,7 +133,9 @@
               v-if="modaldata.hasOwnProperty('clauses') && modaldata.clauses.length">
               <ul v-for="clause in modaldata.clauses">
                 <li>
-                  <div v-text="clause.name" @click="showCase">
+                  <div>
+                    <span v-text="clause.name"></span>
+                    <span @click="showNode" class="m-showclick">+ 展开</span>
                   </div>
                   <fieldset v-html="(clause.content || ' ') | marked" v-show="false">
                   </fieldset>
@@ -140,7 +152,9 @@
               v-if="modaldata.hasOwnProperty('questions') && modaldata.questions.length">
               <ul v-for="question in modaldata.questions">
                 <li>
-                  <div v-text="question.name" @click="showNode">
+                  <div>
+                    <span v-text="question.name"></span>
+                    <span @click="showNode" class="m-showclick">+ 展开</span>
                   </div>
                   <fieldset v-html="(question.content || ' ') | marked" v-show="false">
                   </fieldset>
@@ -157,7 +171,9 @@
               v-if="modaldata.hasOwnProperty('cases') && modaldata.cases.length">
               <ul v-for="case1 in modaldata.cases">
                 <li>
-                  <div v-text="case1.name" @click="showNode">
+                  <div>
+                    <span v-text="case1.name"></span>
+                    <span @click="showNode" class="m-showclick">+ 展开</span>
                   </div>
                   <fieldset v-html="(case1.content || ' ') | marked" v-show="false">
                   </fieldset>
@@ -210,13 +226,14 @@
       },
       showNode(){
         let el = event.srcElement?event.srcElement:event.target,
-            fieldset = el.parentNode.childNodes[3];
-        fieldset.style.display = 'block';
-      },
-      showCase(){
-        let el = event.srcElement?event.srcElement:event.target,
-            fieldset = el.parentNode.childNodes[3];
-        fieldset.style.display = 'block';
+            fieldset = el.parentNode.parentNode.childNodes[3];
+        if (fieldset.style.display == 'block') {
+          fieldset.style.display = 'none';
+          el.innerHTML = '+ 展开';
+        } else {
+          fieldset.style.display = 'block';
+          el.innerHTML = '- 收起';
+        }
       }
     },
     components: {

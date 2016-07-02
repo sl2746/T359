@@ -1,7 +1,7 @@
 <template>
   <ol class="m-breadcrumb f-fl">
     <li><a href="#">首页</a></li>
-    <li><a href="#">专业知识库</a></li>
+    <!-- <li><a href="#">专业知识库</a></li> -->
     <li class="active">食品相关</li>
   </ol>
 </template>

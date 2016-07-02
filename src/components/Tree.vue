@@ -95,9 +95,6 @@
             };
         $this.treeData = data;
       });
-    },
-    components:{
-      // item,
     }
   }
 </script>

@@ -53,7 +53,6 @@
           let url = `http://61.139.87.61:8880/categories/${data.category_id}/bases/${path}`;
           $this.$http.get(url)
           .then(response => {
-            // console.log(JSON.stringify(response.data.items.length));
             if (path == 'sources') {//法律
               let gp = _.groupBy(response.data.items,(val)=>{
                 return val.effectLevel.name;
@@ -112,10 +111,6 @@
     components: {
       mDefault,
       mNotLogged
-    },
-    route: {
-      deactivate: function () {
-      }
     }
   }
 </script>
