@@ -17,6 +17,7 @@
     },
     methods: {
       search() {
+        console.log(123);
         if (this.value !== '') {
           this.$router.go({
             path: '/search',
@@ -28,7 +29,6 @@
         } else {
           alert('请输入查询信息！')
         }
-
       }
     }
   }
