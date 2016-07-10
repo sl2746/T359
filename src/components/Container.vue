@@ -20,7 +20,7 @@
     route:  {
         canReuse:function(){
           //不可以复用
-          return false;
+          return true;
         },
         data: function (transition) {
           // this.$http.get(`http://61.139.87.61:8880/conditions?keyword=${this.$route.query.keyword}`)
