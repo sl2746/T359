@@ -21,6 +21,7 @@
 }
 
 .m-breadcrumb > li > a {
-  color: #0066CC;
-  text-decoration: underline;
+	font-size: 16px;
+  	color: #4F4F4F;
+  	text-decoration: none;
 }

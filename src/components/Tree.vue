@@ -25,7 +25,7 @@ strVar += "      <div";
 strVar += "        v-show=\"isRoot\"";
 strVar += "        @click=\"toggle\"";
 strVar += "        @dblclick=\"changeType\">";
-strVar += "        <span v-if=\"isFolder\"><img v-if=\"open\"src=\"../src/img/square_remove.png\"><img v-else src=\"../src/img/square_add.png\"><\/span>";
+strVar += "        <span v-if=\"isFolder\"><img v-if=\"open\"src=\"../src/img/closed_icon.png\"><img v-else src=\"../src/img/open_icon.png\"><\/span>";
 strVar += "        {{model.name}}";
 strVar += "      <\/div>";
 strVar += "      <div v-if=\"isRoot\"><ul v-show=\"open\" v-if=\"isFolder\">";

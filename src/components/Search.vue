@@ -1,10 +1,15 @@
 <template>
   <div class="m-search f-fr">
+    <!--
     <div class="search-box">
       <img src="../img/zoom_16px_1140621_easyicon.net.png" alt="">
       <input type="text" @keyup.enter="search" v-model="value">
     </div>
     <div class="search-submit" @click="search">搜索</div>
+    -->
+    <div class="s-search">
+    <input type="text" @keyup.enter="search" v-model="value" class="s-search-input">
+    </div>
   </div>
 </template>
 
@@ -37,5 +42,5 @@
 </script>
 
 <style>
-  @import '../css/search.css';
+  @import '../css/sl.css';
 </style>
