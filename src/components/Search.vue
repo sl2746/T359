@@ -42,5 +42,5 @@
 </script>
 
 <style>
-  @import '../css/sl.css';
+  @import '../css/common.css';
 </style>

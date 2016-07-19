@@ -1,0 +1,27 @@
+.s-bg {
+	background-image: url(../img/viewpage_bg.png);
+	font-family: 微软雅黑;	
+}
+.s-logo-main {
+	background: url("../img/logo_im.png") no-repeat;
+	height: 50px;
+	vertical-align: text-bottom;
+}
+.s-login {
+	padding-left:30px;
+  	font-size: 16px;
+  	float: right;
+  	color: #4F4F4F;
+}
+.s-search {
+	background: url("../img/search_bar.png");
+	width: 312px;
+	height:41px;
+	vertical-align: text-bottom;
+}
+.s-search-input {
+	margin: 5px 0 0 20px;
+	border: none;
+	width: 250px;
+	height: 25px;
+}

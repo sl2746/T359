@@ -1,0 +1,74 @@
+.s-index-bg {
+	background-image: url(../img/bg.png.png);
+	margin: 0 auto;
+	width: 100%;
+	font-family: 微软雅黑;	
+}
+.s-index-content {
+	margin: 0 auto;
+	width: 1200px;
+}
+.s-index-logo {
+	background: url("../img/logo_image.png") no-repeat;
+	vertical-align: text-bottom;
+	height: 267px;
+}
+.s-index-fun {
+	margin-top: 38px;
+	background: url("../img/nav_bg.png") no-repeat;
+	float: right;
+	height: 64px;
+	width: 378px;
+	padding: 20px 0 0 30px;
+	color: #FFFFFF;
+}
+.s-index-guide {
+	margin: 0 auto;
+	width: 978px;
+	height:233px;
+	background: url("../img/icon_bg.png") no-repeat;
+	text-align: center;
+	margin-top: 150px;
+}
+.s-index-guide table{
+	padding: 60px 0 0 70px;
+	width: 978px;
+}
+.s-index-btn-1 {
+	background: url("../img/law_icon_button.png") no-repeat;
+	height: 157px;
+	width: 113px;
+}
+.s-index-btn-2 {
+	background: url("../img/food_icon_button.png") no-repeat;
+	height: 156px;
+	width: 113px;
+}
+.s-index-btn-3 {
+	background: url("../img/medicines_icon_button.png") no-repeat;
+	height: 156px;
+	width: 113px;
+}
+.s-index-btn-4 {
+	background: url("../img/instruments_icon_button.png") no-repeat;
+	height: 157px;
+	width: 144px;
+}
+.s-index-btn-5 {
+	background: url("../img/medical_icon_button.png") no-repeat;
+	height: 156px;
+	width: 144px;
+}
+.s-index-fun a {
+	padding-right: 20px;
+}
+.s-index-copyright {
+	text-align:center;
+	color: #FFFFFF;
+	position: absolute;
+	width: 1200px;
+	left: 50%;
+	bottom: 40px;
+	margin-left: -600px;
+	font-size: 14px;
+}

@@ -1,7 +1,9 @@
 <template>
   <header class="g-h">
-    江湖健法
-    <a href="###" class="login">登陆</a>
+   	<div class="s-logo-main">
+    <a href="###" class="s-login">注册</a>
+    <a href="###" class="s-login">登陆</a>
+    </div>
   </header>
   <div class="f-cb">
     <breadcrumb></breadcrumb>
@@ -23,4 +25,5 @@
 
 <style>
   @import '../css/header.css';
+  @import '../css/common.css';
 </style>
