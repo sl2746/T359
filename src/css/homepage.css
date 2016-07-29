@@ -1,74 +1,74 @@
-.s-index-bg {
-	background-image: url(../img/bg.png.png);
+.s-homepage-bg {
+	background: url(../img/bg.png.png) no-repeat center;
+	background-size: cover;
 	margin: 0 auto;
 	width: 100%;
 	font-family: 微软雅黑;	
+	position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
 }
-.s-index-content {
+.s-homepage-content {
 	margin: 0 auto;
-	width: 1200px;
+	width: 1024px;
 }
-.s-index-logo {
+.s-homepage-logo {
 	background: url("../img/logo_image.png") no-repeat;
 	vertical-align: text-bottom;
 	height: 267px;
 }
-.s-index-fun {
+.s-homepage-fun {
 	margin-top: 38px;
 	background: url("../img/nav_bg.png") no-repeat;
 	float: right;
 	height: 64px;
 	width: 378px;
 	padding: 20px 0 0 30px;
-	color: #FFFFFF;
 }
-.s-index-guide {
+.s-homepage-guide {
 	margin: 0 auto;
 	width: 978px;
-	height:233px;
-	background: url("../img/icon_bg.png") no-repeat;
+	background: url("../img/icon_bg.png") no-repeat center;
 	text-align: center;
-	margin-top: 150px;
 }
-.s-index-guide table{
-	padding: 60px 0 0 70px;
-	width: 978px;
+.s-homepage-guide table{
+	height: 233px;
 }
-.s-index-btn-1 {
+.s-homepage-guide td{
+	padding-top: 30px;
+}
+.s-homepage-btn-1 {
 	background: url("../img/law_icon_button.png") no-repeat;
-	height: 157px;
-	width: 113px;
+	padding: 80px 60px;
 }
-.s-index-btn-2 {
+.s-homepage-btn-2 {
 	background: url("../img/food_icon_button.png") no-repeat;
-	height: 156px;
-	width: 113px;
+	padding: 80px 60px;
 }
-.s-index-btn-3 {
+.s-homepage-btn-3 {
 	background: url("../img/medicines_icon_button.png") no-repeat;
-	height: 156px;
-	width: 113px;
+	padding: 80px 60px;
 }
-.s-index-btn-4 {
+.s-homepage-btn-4 {
 	background: url("../img/instruments_icon_button.png") no-repeat;
-	height: 157px;
-	width: 144px;
+	padding: 80px 70px;
 }
-.s-index-btn-5 {
+.s-homepage-btn-5 {
 	background: url("../img/medical_icon_button.png") no-repeat;
-	height: 156px;
-	width: 144px;
+	padding: 80px 60px;
 }
-.s-index-fun a {
+.s-homepage-fun a {
 	padding-right: 20px;
-}
-.s-index-copyright {
-	text-align:center;
 	color: #FFFFFF;
-	position: absolute;
-	width: 1200px;
-	left: 50%;
-	bottom: 40px;
-	margin-left: -600px;
+	font-size: 16px;
+}
+.s-homepage-copyright {
+	padding-bottom:10px;
+	width:1024px;
+	color: #FFFFFF;
 	font-size: 14px;
+	position: absolute;
+	bottom: 0;
+	text-align: center;
 }

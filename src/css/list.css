@@ -3,24 +3,28 @@
   margin-left: 30px;
 }
 
-.m-list > fieldset {
+.m-item {
   overflow-y: auto;
-  max-height: 300px;
   margin-bottom: 10px;
-  background-color: #66FF66;
 }
-
-.m-list > fieldset > legend {
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.m-list > fieldset > a {
+.m-item > a {
   display: block;
   line-height: 2;
   font-size: 16px;
+  color: #2189C0;
+  vertical-align: middle;
+  padding: 15px 0;
+  border-bottom: 1px solid #EEEEEE;
 }
-
-.m-list > fieldset > a > .u-icon {
+.m-item-img {
+  float: right;
+  vertical-align: text-bottom;
+}
+.m-item > a > .u-icon {
   margin-right: 10px;
+}
+.m-item-num {
+	float: right;
+	color:#ABAAAA;
+	padding-left:15px;
 }

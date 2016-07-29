@@ -24,5 +24,6 @@
 }
 
 div.active{
-  color: blue;
+  background-color: #942326;
+  color: #FFFFFF;
 }
