@@ -1,17 +1,33 @@
 <style>
 
 @import '../../css/modal/index.css';
+@import '../../css/modal/info.css';
 
 </style>
 
 <template>
-
 <layout :modaldata.sync="modaldata" :close.sync="close">
+	<div class="s-info-up-bg">
+		<div class="s-info-head">
+			<div class="s-info-title">中华人民共和国食品安全法</div>
+			<div class="s-info-sub">发布文号：中华人民共和国主席令十一届九号</div>
+			<div class="s-info-sub">发布单位：全国人民代表大会常务委员会</div>
+			<div class="s-info-sub">发布日期：2009-02-08</div>
+			<div class="s-info-sub">生效日期：2009-06-01</div>
+			<div class="s-info-btn"></div>
+		</div>
+	</div>
+    <div class="s-content-title">中华人民共和国食品安全法</div>
     <!-- 问题 -->
     <div>
         <div class="default-tab" v-show="opentype == 'questions'">
             <ul class="btns f-cb">
+            	<!--
                 <li v-for="item in ['问题解答','参考案例','相关法规']" v-text="item" :class="[index === $index ? 'active' : '']" @click="change($index)"></li>
+                -->
+                <li class="s-content-btn1" :class="[index === 0 ? 'active' : '']" @click="change(0)"></li>
+                <li class="s-content-btn2" :class="[index === 1 ? 'active' : '']" @click="change(1)"></li>
+                <li class="s-content-btn3" :class="[index === 2 ? 'active' : '']" @click="change(2)"></li>
             </ul>
             <ul class="contents">
                 <li v-show="index === 0">
@@ -26,7 +42,7 @@
                             <li>
                                 <div>
                                     <span v-text="case1.name"></span>
-                                    <span @click="showNode" class="m-showclick">+ 展开</span>
+                                    <span @click="showNode" class="m-showclick">展开</span>
                                 </div>
                                 <div v-show="false">
                                     <fieldset v-html="(case1.content || ' ') | marked">
@@ -37,7 +53,7 @@
                         </ul>
                     </div>
                     <div v-else>
-                        暂无参考案例
+						暂无参考案例
                     </div>
                 </li>
                 <li v-show="index === 2">
@@ -46,7 +62,7 @@
                             <li>
                                 <div>
                                     <span v-text="clause.name"></span>
-                                    <span @click="showNode" class="m-showclick">+ 展开</span>
+                                    <span @click="showNode" class="m-showclick">展开</span>
                                 </div>
                                 <fieldset v-html="(clause.content || ' ') | marked" v-show="false">
                                 </fieldset>
@@ -55,7 +71,7 @@
                         </ul>
                     </div>
                     <div v-else>
-                        暂无相关法规
+                       	 暂无相关法规
                     </div>
                 </li>
             </ul>
@@ -78,7 +94,7 @@
                             <li>
                                 <div>
                                     <span v-text="case1.name"></span>
-                                    <span @click="showNode" class="m-showclick">+ 展开</span>
+                                    <span @click="showNode" class="m-showclick">展开</span>
                                 </div>
                                 <fieldset v-html="(case1.content || ' ') | marked" v-show="false">
                                 </fieldset>
@@ -96,7 +112,7 @@
                             <li>
                                 <div>
                                     <span v-text="clause.name"></span>
-                                    <span @click="showNode" class="m-showclick">+ 展开</span>
+                                    <span @click="showNode" class="m-showclick">展开</span>
                                 </div>
                                 <fieldset v-html="(clause.content || ' ') | marked" v-show="false">
                                 </fieldset>
@@ -128,7 +144,7 @@
                             <li>
                                 <div>
                                     <span v-text="clause.name"></span>
-                                    <span @click="showNode" class="m-showclick">+ 展开</span>
+                                    <span @click="showNode" class="m-showclick">展开</span>
                                 </div>
                                 <fieldset v-html="(clause.content || ' ') | marked" v-show="false">
                                 </fieldset>
@@ -146,7 +162,7 @@
                             <li>
                                 <div>
                                     <span v-text="question.name"></span>
-                                    <span @click="showNode" class="m-showclick">+ 展开</span>
+                                    <span @click="showNode" class="m-showclick">展开</span>
                                 </div>
                                 <fieldset v-html="(question.content || ' ') | marked" v-show="false">
                                 </fieldset>
@@ -164,7 +180,7 @@
                             <li>
                                 <div>
                                     <span v-text="case1.name"></span>
-                                    <span @click="showNode" class="m-showclick">+ 展开</span>
+                                    <span @click="showNode" class="m-showclick">展开</span>
                                 </div>
                                 <fieldset v-html="(case1.content || ' ') | marked" v-show="false">
                                 </fieldset>
@@ -222,10 +238,10 @@ export default {
                     fieldset = el.parentNode.parentNode.childNodes[3];
                 if (fieldset.style.display == 'block') {
                     fieldset.style.display = 'none';
-                    el.innerHTML = '+ 展开';
+                    el.innerHTML = '展开';
                 } else {
                     fieldset.style.display = 'block';
-                    el.innerHTML = '- 收起';
+                    el.innerHTML = '收起';
                 }
             }
     },
