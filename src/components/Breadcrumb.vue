@@ -1,14 +1,16 @@
 <template>
   <ol class="m-breadcrumb f-fl">
-    <li><a href="#">首页</a></li>
-    <!-- <li><a href="#">专业知识库</a></li> -->
-    <li class="active"><a href="###">食品相关</a></li>
+    <li><a v-link="{path: '/index'}">首页</a></li>
+    <li><a><sl-subtitle></sl-subtitle></a></li>
   </ol>
 </template>
 
 <script>
-  export default {
-  }
+
+	/**/
+  	export default {
+
+	}
 </script>
 
 <style>

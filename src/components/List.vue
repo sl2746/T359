@@ -8,15 +8,14 @@
 
 <div>
     <div class="m-list f-fr">
-        <fieldset v-for="item in data">
-            <legend>
-                {{ item.title + item.list.length + '个' }}
-            </legend>
+        <div v-for="item in data" class="m-item">
             <a v-for="data in item.list" @click="open(data.id)">
                 <i class="u-icon" :class="[iconClass]"></i>
                 <span v-text="data.title"></span>
+            <span class="m-item-num">1203</span>
+            <img class="m-item-img" src="../img/fire_icon.png">
             </a>
-        </fieldset>
+        </div>
     </div>
     <m-default :close.sync="close" :modaldata.sync="modaldata" :opentype.sync="opentype"></m-default>
     <!-- <m-not-logged :close.sync="nloginclose"></m-not-logged> -->

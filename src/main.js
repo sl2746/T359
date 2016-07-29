@@ -16,14 +16,30 @@ Vue.use(asyncData)
 const router = new VueRouter()
 
 router.map({
+	'/index': {
+		name: 'index',
+		component: resolve => require(['./components/Index.vue'], resolve)
+	},
+	'/main': {
+		name: 'main',
+		component: resolve => require(['./components/Main.vue'], resolve),
+		subRoutes:{
+			'/sources': {
+		        name: 'sources',
+		        component: resolve => require(['./components/Container.vue'], resolve)
+		    }
+		}
+	},
     '/questions': {
         name: 'questions',
         component: resolve => require(['./components/Container.vue'], resolve)
     },
+    /**/
     '/sources': {
         name: 'sources',
         component: resolve => require(['./components/Container.vue'], resolve)
     },
+    
     '/cases': {
         name: 'cases',
         component: resolve => require(['./components/Container.vue'], resolve)
@@ -47,7 +63,7 @@ router.map({
 })
 
 router.redirect({
-    '*': '/questions'
+    '*': '/index'
 })
 
 router.start(App, 'body')

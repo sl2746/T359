@@ -2,7 +2,7 @@
   <header class="g-h">
    	<div class="s-logo-main">
     <a href="###" class="s-login">注册</a>
-    <a href="###" class="s-login">登陆</a>
+    <a href="###" class="s-login">登录</a>
     </div>
   </header>
   <div class="f-cb">

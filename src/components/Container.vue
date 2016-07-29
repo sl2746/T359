@@ -34,5 +34,5 @@
 </script>
 
 <style>
-
+	@import '../css/index.css';
 </style>
